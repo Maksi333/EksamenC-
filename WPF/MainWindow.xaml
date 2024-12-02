@@ -1,0 +1,16 @@
+﻿<Window x:Class="WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="NewTaskBtn" Content="Create Task" HorizontalAlignment="Left" Margin="55,110,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
+        <Button x:Name="NewEmpBtn" Content="Create Employee" HorizontalAlignment="Left" Margin="55,311,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
+        <Button x:Name="SeeEmplyeeBtn" Content="See Employees" HorizontalAlignment="Left" Height="30" Margin="55,263,0,0" VerticalAlignment="Top" Width="100" Click="SeeEmplyeeBtn_Click"/>
+        <Button x:Name="SeeTasksBtn" Content="Button" HorizontalAlignment="Left" Margin="55,62,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+
+    </Grid>
+</Window>
