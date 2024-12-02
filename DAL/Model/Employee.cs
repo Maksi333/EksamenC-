@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Model {
-    internal class Employee {
+    public class Employee {
         public string Initials { get; set; }
         public string Name { get; set; }
         [Key]
@@ -21,6 +21,10 @@ namespace DAL.Model {
             Name = name;
             Department = department;
 
+        }
+        public override string ToString()
+        {
+            return Name + Cpr;
         }
     }
 }

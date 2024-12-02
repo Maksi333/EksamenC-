@@ -20,5 +20,9 @@ namespace DTO.Model {
             Department = department;
 
         }
+        public override string ToString()
+        {
+            return Name + Cpr;
+        }
     }
 }

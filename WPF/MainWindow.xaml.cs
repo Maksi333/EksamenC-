@@ -15,14 +15,20 @@ using WPF.Windows;
 using BLL;
 using BLL.BLL;
 using DTO.Model;
+using System.Collections.ObjectModel;
+
 
 namespace WPF {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+        public ObservableCollection<Employee> MyEmployees = new ObservableCollection<Employee>();
         public MainWindow() {
             InitializeComponent();
+            ListOfStuff.DataContext = this;
+            ListOfStuff.ItemsSource = MyEmployees;
+
         }
 
         private void NewEmpBtn_Click(object sender, RoutedEventArgs e)
@@ -40,7 +46,14 @@ namespace WPF {
         private void SeeEmployeesBtn_Click(object sender, RoutedEventArgs e)
         {
             //Todo Update ListBox to show all Employees and change label to "Emplyees"
+            MyEmployees.Clear();
+            List<Employee> employees = EmployeeBll.GetAllEmployees();
+            foreach(var emp in employees)
+            {
+                MyEmployees.Add(emp);
+            }
             ListLabel.Content = "Showing Employees";
+
         }
 
         private void ViewTasksBtn_Click(object sender, RoutedEventArgs e)
@@ -52,6 +65,11 @@ namespace WPF {
         private void TestKnap_Click(object sender, RoutedEventArgs e)
         {
             TestLabel.Content = TaskBll.getTask(1).Title;
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

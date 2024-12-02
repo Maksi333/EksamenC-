@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Model {
-    internal class Department {
+    public class Department {
         public string Name { get; set; }
         [Key]
         public int DepNumber { get; set; }

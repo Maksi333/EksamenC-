@@ -6,5 +6,6 @@ using System.Threading.Tasks;
 
 namespace BLL.BLL {
     internal class DepartmentBll {
+        
     }
 }

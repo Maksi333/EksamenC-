@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Model {
-    internal class Task {
+    public class Task {
         
         public int TaskId { get; set; }
         public string Title { get; set; }
