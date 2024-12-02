@@ -15,5 +15,22 @@ namespace DAL.Mapper {
             }
 
         }
+
+        public static List<DTO.Model.Task> MapDALListToDTO(List<Task> allTasks)
+        {
+            List<DTO.Model.Task> listDTO = new List<DTO.Model.Task>();
+            if (allTasks != null && allTasks.Count > 0)
+            {
+                foreach (Task task in allTasks)
+                {
+                    listDTO.Add(new DTO.Model.Task(task.TaskId, task.Title, task.Description, DepartmentMapper.MapDALToDTO(task.Department)));
+                }
+                return listDTO;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

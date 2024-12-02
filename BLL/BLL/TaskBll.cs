@@ -2,9 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using DAL.Repositories;
+using DTO.Model;
+
 
 namespace BLL.BLL {
-    internal class TaskBll {
+    public class TaskBll {
+
+        public static Task getTask(int id)
+        {
+            if(id < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            else
+            {
+                return TaskRepo.GetTask(id);
+            }
+        }
     }
 }

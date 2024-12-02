@@ -6,11 +6,24 @@
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="NewTaskBtn" Content="Create Task" HorizontalAlignment="Left" Margin="55,110,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
-        <Button x:Name="NewEmpBtn" Content="Create Employee" HorizontalAlignment="Left" Margin="55,311,0,0" VerticalAlignment="Top" Height="30" Width="100"/>
-        <Button x:Name="SeeEmplyeeBtn" Content="See Employees" HorizontalAlignment="Left" Height="30" Margin="55,263,0,0" VerticalAlignment="Top" Width="100" Click="SeeEmplyeeBtn_Click"/>
-        <Button x:Name="SeeTasksBtn" Content="Button" HorizontalAlignment="Left" Margin="55,62,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+    <Grid Margin="0,10,10,29">
+        <Button x:Name="NewTaskBtn" Content="Create Task" HorizontalAlignment="Left" Margin="211,311,0,0" VerticalAlignment="Top" Height="30" Width="100" Click="NewTaskBtn_Click"/>
+        <Button x:Name="NewEmpBtn" Content="Create Employee" HorizontalAlignment="Left" Margin="55,311,0,0" VerticalAlignment="Top" Height="30" Width="100" Click="NewEmpBtn_Click"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="512,63,41,2" RenderTransformOrigin="0.5,0.5">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.515"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.774"/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+        </ListBox>
+        <Button x:Name="SeeEmployeesBtn" Content="View Employees" HorizontalAlignment="Left" Margin="365,62,0,0" VerticalAlignment="Top" Click="SeeEmployeesBtn_Click" Width="100" Height="30"/>
+        <Button x:Name="ViewTasksBtn" Content="View Tasks" HorizontalAlignment="Left" Margin="365,110,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ViewTasksBtn_Click"/>
+        <Label x:Name="ListLabel" Content="Showing Employees" HorizontalAlignment="Left" Margin="511,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="135"></Label>
+        <Button x:Name="TestKnap" Content="TestKnap" HorizontalAlignment="Left" Margin="117,92,0,0" VerticalAlignment="Top" Click="TestKnap_Click"/>
+        <Label x:Name="TestLabel" Content="Label" HorizontalAlignment="Left" Margin="124,51,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
