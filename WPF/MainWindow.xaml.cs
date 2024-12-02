@@ -15,14 +15,45 @@ using WPF.Windows;
 using BLL;
 using BLL.BLL;
 using DTO.Model;
+using System.Collections.ObjectModel;
+
 
 namespace WPF {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+        public ObservableCollection<Employee> MyEmployees = new ObservableCollection<Employee>();
+        public ObservableCollection<Department> MyDepartments = new ObservableCollection<Department>();
+        public ObservableCollection<Task> MyTasks = new ObservableCollection<Task>();
         public MainWindow() {
             InitializeComponent();
+            LoadEmployees();
+            LoadDepartments();
+            LoadTasks();
+        }
+
+        private void LoadTasks()
+        {
+            TaskList.DataContext = this;
+            TaskList.ItemsSource = MyTasks;
+        }
+
+        private void LoadEmployees()
+        {
+            ListOfStuff.DataContext = this;
+            ListOfStuff.ItemsSource = MyEmployees;
+        }
+
+        private void LoadDepartments()
+        {
+            MyDepartments.Clear();
+            List<Department> departments =  DepartmentBll.GetAllDepartents();
+            foreach (var dep in departments)
+            {
+                MyDepartments.Add(dep);
+            }
+            DepartmentsDropDown.ItemsSource = MyDepartments;
         }
 
         private void NewEmpBtn_Click(object sender, RoutedEventArgs e)
@@ -40,18 +71,42 @@ namespace WPF {
         private void SeeEmployeesBtn_Click(object sender, RoutedEventArgs e)
         {
             //Todo Update ListBox to show all Employees and change label to "Emplyees"
-            ListLabel.Content = "Showing Employees";
+            MyEmployees.Clear();
+            List<Employee> employees = EmployeeBll.GetAllEmployees();
+            foreach(var emp in employees)
+            {
+                MyEmployees.Add(emp);
+            }
+            
+
         }
 
         private void ViewTasksBtn_Click(object sender, RoutedEventArgs e)
         {
             //Todo Update Listbox to show all Tasks And change label to "Tasks"
-            ListLabel.Content = "Showing Tasks";
+            MyTasks.Clear();
+            List<Task> tasks = TaskBll.getAllTasks();
+            foreach(var task in tasks)
+            {
+                MyTasks.Add(task);
+            }
+            
         }
 
-        private void TestKnap_Click(object sender, RoutedEventArgs e)
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TestLabel.Content = TaskBll.getTask(1).Title;
+
         }
+
+        private void Departments_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+      
     }
 }

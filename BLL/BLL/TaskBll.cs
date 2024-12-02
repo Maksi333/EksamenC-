@@ -20,5 +20,19 @@ namespace BLL.BLL {
                 return TaskRepo.GetTask(id);
             }
         }
+        public static List<Task> getAllTasks()
+        {
+            List<Task> tasks = TaskRepo.GetAllTasks();
+            return tasks;
+           
+        }
+
+        public static void CreateTask(int id, string title, string description)
+        {
+            Task task = new Task(id, title, description);
+            TaskRepo.AddTask(task);
+        }
+
+        
     }
 }

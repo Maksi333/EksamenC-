@@ -62,7 +62,7 @@
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\TimeRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\CompanyRepo.cs" />
+    <Compile Include="Repositories\DepartmentRepo.cs" />
     <Compile Include="Repositories\EmployeeRepo.cs" />
     <Compile Include="Repositories\TaskRepo.cs" />
   </ItemGroup>

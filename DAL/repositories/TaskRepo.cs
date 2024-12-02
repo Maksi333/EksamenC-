@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Mapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,18 @@ namespace DAL.Repositories
                 var taskListDTO = Mapper.TaskMapper.MapDALListToDTO(allTasks);
                 return taskListDTO;
             }
+        }
+
+        public static void AddTask(DTO.Model.Task task)
+        {
+            using (Context.EksamensContext context = new Context.EksamensContext())
+            {
+                DAL.Model.Task dalTask = TaskMapper.FromDTOToDAL(task);
+                context.Tasks.Add(dalTask);
+                context.SaveChanges();
+            }
+            
+            
         }
     }
 }

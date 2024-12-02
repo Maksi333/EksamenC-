@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace WPF.Windows
         public CreateTask()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TaskBll.CreateTask(Int32.Parse(idtxf.Text), titletxf.Text, desctxf.Text);
+            this.Close();
         }
     }
 }

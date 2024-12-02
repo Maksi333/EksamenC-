@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="CreateEmployee" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="Inittxf" HorizontalAlignment="Left" Margin="54,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Cprtxf" HorizontalAlignment="Left" Margin="54,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Nametxf" HorizontalAlignment="Left" Margin="54,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="DepartmentList" HorizontalAlignment="Left" Margin="54,230,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=Departments}" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Button x:Name="Create" Content="Create" HorizontalAlignment="Left" Margin="54,261,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Label Content="Initials" HorizontalAlignment="Left" Margin="52,58,0,0" VerticalAlignment="Top" Width="83"/>
+        <Label Content="CPR" HorizontalAlignment="Left" Margin="54,112,0,0" VerticalAlignment="Top" Width="67"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="54,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="Department" HorizontalAlignment="Left" Margin="52,0,0,0" VerticalAlignment="Center"/>
+
     </Grid>
 </Window>

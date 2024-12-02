@@ -15,5 +15,33 @@ namespace DAL.Mapper {
                 return null;
             }
         }
+        public static List<DTO.Model.Department> MapList(List<Department> departmentList)
+        {
+            List<DTO.Model.Department> departments = new List<DTO.Model.Department>();
+
+            if(departmentList != null && departmentList.Count > 0)
+            {
+                foreach (var dep in departmentList)
+                {
+                    departments.Add(new DTO.Model.Department(dep.Name, dep.DepNumber));
+                }
+                return departments;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static DAL.Model.Department MapDTOToDAL(DTO.Model.Department department)
+        {
+            if (department != null)
+            {
+                return new Department(department.Name, department.DepNumber);
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

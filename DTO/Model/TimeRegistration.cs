@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DTO.Model {
-    internal class TimeRegistration {
+    public class TimeRegistration {
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public int Number { get; set; }
