@@ -14,8 +14,6 @@ namespace DTO.Model {
         [ForeignKey("Department")]
         public int DepartmentID { get; set; }
 
-        public List<TimeRegistration> TimeRegs { get; set; }
-
         public Employee() { }
 
         public Employee(string initials, int cpr, string name) {

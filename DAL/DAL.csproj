@@ -57,6 +57,7 @@
     <Compile Include="Mapper\DepartmentMapper.cs" />
     <Compile Include="Mapper\EmployeeMapper.cs" />
     <Compile Include="Mapper\TaskMapper.cs" />
+    <Compile Include="Mapper\TimeRegMapper.cs" />
     <Compile Include="Model\Department.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Task.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Repositories\DepartmentRepo.cs" />
     <Compile Include="Repositories\EmployeeRepo.cs" />
     <Compile Include="Repositories\TaskRepo.cs" />
+    <Compile Include="Repositories\TimeRegRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

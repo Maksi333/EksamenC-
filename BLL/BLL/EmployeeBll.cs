@@ -31,5 +31,46 @@ namespace BLL.BLL {
             Employee employee = new Employee(initials, cpr, name);
             EmployeeRepo.AddEmployee(employee);
         }
+
+        /*
+        public static double HoursWeek(Employee emp)
+        {
+            double hours = 0;
+            DateTime oneWeekAgo = DateTime.Now.AddDays(-7);
+            foreach(var t in emp.TimeRegs)
+            {
+                if(t.Start > oneWeekAgo)
+                {
+                    TimeSpan timeDiff = t.End - t.Start;
+                    hours += timeDiff.Hours;
+                }
+            }
+            return hours;
+        }
+        public static double HoursMonth(Employee emp)
+        {
+            double hours = 0;
+            DateTime oneMonthAgo = DateTime.Now.AddMonths(-1);
+            foreach (var t in emp.TimeRegs)
+            {
+                if (t.Start > oneMonthAgo)
+                {
+                    TimeSpan timeDiff = t.End - t.Start;
+                    hours += timeDiff.Hours;
+                }
+            }
+            return hours;
+        }
+        public static double HoursTotal(Employee emp)
+        {
+            double total = 0;
+            foreach (var t in emp.TimeRegs)
+            {
+                TimeSpan timeDiff = t.End - t.Start;
+                total += timeDiff.TotalHours;
+            }
+            return total;
+        }
+        */
     }
 }
