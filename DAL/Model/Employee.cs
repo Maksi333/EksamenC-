@@ -30,5 +30,9 @@ namespace DAL.Model {
         {
             return Name + Cpr;
         }
+        public override string ToString()
+        {
+            return Name + Cpr;
+        }
     }
 }
