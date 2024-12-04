@@ -26,9 +26,9 @@ namespace BLL.BLL {
             List<Employee> employees = EmployeeRepo.GetAllEmployees();
             return employees;
         }
-        public static void CreateEmployee(string initials, int cpr, string name)
+        public static void CreateEmployee(string initials, int cpr, string name, int depNumber)
         {
-            Employee employee = new Employee(initials, cpr, name);
+            Employee employee = new Employee(initials, cpr, name, depNumber);
             EmployeeRepo.AddEmployee(employee);
         }
 

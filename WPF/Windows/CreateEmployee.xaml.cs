@@ -47,8 +47,10 @@ namespace WPF.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            EmployeeBll.CreateEmployee(Inittxf.Text, Int32.Parse(Cprtxf.Text), Nametxf.Text);
+            Department selectedDep = (DTO.Model.Department)DepartmentList.SelectionBoxItem;
+            EmployeeBll.CreateEmployee(Inittxf.Text, Int32.Parse(Cprtxf.Text), Nametxf.Text, selectedDep.DepNumber); 
             this.Close();
         }
+        
     }
 }

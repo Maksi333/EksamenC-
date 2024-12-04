@@ -11,9 +11,9 @@ namespace DAL.Context {
             Department dep1 = new DAL.Model.Department("The Northern Department", 1);
             Department dep2 = new DAL.Model.Department("The Eastern Department", 2);
             Department dep3 = new DAL.Model.Department("The Southern Department", 3);
-            Employee employee = new Employee("sna", 11111111, "Bob");
-            Employee employee2 = new Employee("Bnb", 22222222, "Danny");
-            Employee employee3 = new Employee("msa",33333333, "Misha");
+            Employee employee = new Employee("sna", 11111111, "Bob", 1);
+            Employee employee2 = new Employee("Bnb", 22222222, "Danny", 1);
+            Employee employee3 = new Employee("msa",33333333, "Misha", 1);
             context.Employees.Add(employee);
             context.Employees.Add(employee2);
             context.Employees.Add(employee3);

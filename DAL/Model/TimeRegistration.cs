@@ -10,15 +10,15 @@ namespace DAL.Model {
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         [Key]
-        public int Number { get; set; }
+        public int Id { get; set; }
         public Employee Employee { get; set; }
         public Task Task { get; set; }
 
         public TimeRegistration() { }
-        public TimeRegistration(DateTime start, DateTime end, int number, Employee employee, Task task) {
+        public TimeRegistration(DateTime start, DateTime end, int id, Employee employee, Task task) {
             Start = start;
             End = end;
-            Number = number;
+            Id = id;
             Employee = employee;
             Task = task;
         }

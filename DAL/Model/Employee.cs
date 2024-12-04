@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Mapper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,24 +10,27 @@ using System.Threading.Tasks;
 namespace DAL.Model {
     public class Employee {
         public string Initials { get; set; }
-        public string Name { get; set; }
         [Key]
-        public int Cpr { get; set; }
-        public Department Department { get; set; }
+        public string Name { get; set; }
         
-        public int DepartmentID { get; set; }
+        public int Cpr { get; set; }
+        
+        public Department Department { get; set; }
+        //[ForeignKey("Department")]
+        public int DepNumber { get; set; }
 
         public Employee() { }
 
-        public Employee(string initials, int cpr, string name)
+        public Employee(string initials, int cpr, string name, int depNumber)
         {
             Initials = initials;
             Cpr = cpr;
             Name = name;
+            DepNumber = depNumber;
         }
         public override string ToString()
         {
-            return Name + Cpr;
+            return $"Name: ${Name}, + CPR: {Cpr}";
         }
     }
 }

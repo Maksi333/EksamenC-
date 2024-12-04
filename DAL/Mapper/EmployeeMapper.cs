@@ -16,7 +16,7 @@ namespace DAL.Mapper {
             }
             else
             {
-                return new DTO.Model.Employee(employee.Initials, employee.Cpr, employee.Name);
+                return new DTO.Model.Employee(employee.Initials, employee.Cpr, employee.Name, employee.DepNumber);
             }
         }
 
@@ -27,7 +27,7 @@ namespace DAL.Mapper {
             {
                 foreach(var employee in dalEmployees)
                 {
-                    employees.Add(new DTO.Model.Employee(employee.Initials, employee.Cpr, employee.Name));
+                    employees.Add(new DTO.Model.Employee(employee.Initials, employee.Cpr, employee.Name, employee.DepNumber));
                 }
                 return employees;
             }
@@ -45,10 +45,8 @@ namespace DAL.Mapper {
             }
             else
             {
-                return new DAL.Model.Employee(employee.Initials, employee.Cpr, employee.Name);
-            }
-
-            
+                return new DAL.Model.Employee(employee.Initials, employee.Cpr, employee.Name, employee.DepNumber);
+            }   
         }
     }
 }

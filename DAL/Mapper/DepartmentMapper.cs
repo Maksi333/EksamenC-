@@ -34,13 +34,19 @@ namespace DAL.Mapper {
         }
         public static DAL.Model.Department MapDTOToDAL(DTO.Model.Department department)
         {
-            if (department != null)
+            if (department == null)
             {
                 return new Department(department.Name, department.DepNumber);
             }
             else
             {
-                return null;
+                return GetCurrentDep(department);
+            }
+        }
+        public static DAL.Model.Department GetCurrentDep(DTO.Model.Department department) {
+            using(Context.EksamensContext context = new Context.EksamensContext()) {
+                Model.Department current = context.Departments.Find(department.DepNumber);
+                return current;
             }
         }
     }
