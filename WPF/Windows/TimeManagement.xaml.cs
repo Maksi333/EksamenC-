@@ -101,7 +101,7 @@ namespace WPF.Windows
             DateTime end = DateTime.Parse(EndTimeTxf.Text);
             TimeRegistration selectedTimeReg = (DTO.Model.TimeRegistration)TimeList.SelectedItem;
             TimeRegBll.UpdateTimeReg(selectedTimeReg, start, end);
-            
+            this.Close();
         }
 
         private void WorkTimeBtn_Click(object sender, RoutedEventArgs e)
@@ -111,7 +111,7 @@ namespace WPF.Windows
             DateTime end = timeReg.End;
             StartTimetxf.Text = start.ToString();
             EndTimeTxf.Text = end.ToString();
-            this.Close();
+            
         }
     }
 }
