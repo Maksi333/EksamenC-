@@ -35,6 +35,14 @@
         </Label>
         <ListBox x:Name="TaskList" d:ItemsSource="{Binding Path=MyTasks}" Margin="274,65,341,110" Width="185" Height="255" SelectionChanged="ListBox_SelectionChanged_1"/>
         <Label Content="Tasks" HorizontalAlignment="Left" Margin="274,32,0,0" VerticalAlignment="Top"/>
+        <Label Content="Hours worked" HorizontalAlignment="Left" Margin="482,115,0,0" VerticalAlignment="Top" Height="28"/>
+        <Label Content="Week:" HorizontalAlignment="Left" Margin="464,143,0,0" VerticalAlignment="Top"/>
+        <Label Content="Month:" HorizontalAlignment="Left" Margin="464,169,0,0" VerticalAlignment="Top"/>
+        <Label Content="Total:" HorizontalAlignment="Left" Margin="464,193,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="HoursWeek" Content="" HorizontalAlignment="Left" Margin="528,143,0,0" VerticalAlignment="Top" Width="46"/>
+        <Label x:Name="Hoursmonth" Content="" HorizontalAlignment="Left" Margin="528,169,0,0" VerticalAlignment="Top" Width="46"/>
+        <Label x:Name="HoursTotal" Content="" HorizontalAlignment="Left" Margin="528,193,0,0" VerticalAlignment="Top" Width="46"/>
+
 
     </Grid>
 </Window>

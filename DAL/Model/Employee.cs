@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace DAL.Model {
     public class Employee {
-        public string Initials { get; set; }
         [Key]
+        public string Initials { get; set; }
+        
         public string Name { get; set; }
         
         public int Cpr { get; set; }

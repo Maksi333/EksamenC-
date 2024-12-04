@@ -14,6 +14,7 @@ namespace DAL.Context {
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<TimeRegistration> TimeRegistrations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

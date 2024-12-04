@@ -31,46 +31,53 @@ namespace BLL.BLL {
             Employee employee = new Employee(initials, cpr, name, depNumber);
             EmployeeRepo.AddEmployee(employee);
         }
-
-        /*
-        public static double HoursWeek(Employee emp)
-        {
-            double hours = 0;
-            DateTime oneWeekAgo = DateTime.Now.AddDays(-7);
-            foreach(var t in emp.TimeRegs)
-            {
-                if(t.Start > oneWeekAgo)
-                {
-                    TimeSpan timeDiff = t.End - t.Start;
-                    hours += timeDiff.Hours;
-                }
-            }
-            return hours;
-        }
-        public static double HoursMonth(Employee emp)
-        {
-            double hours = 0;
-            DateTime oneMonthAgo = DateTime.Now.AddMonths(-1);
-            foreach (var t in emp.TimeRegs)
-            {
-                if (t.Start > oneMonthAgo)
-                {
-                    TimeSpan timeDiff = t.End - t.Start;
-                    hours += timeDiff.Hours;
-                }
-            }
-            return hours;
-        }
-        public static double HoursTotal(Employee emp)
+        
+        public static double GetHoursWeek(string empInitials)
         {
             double total = 0;
-            foreach (var t in emp.TimeRegs)
+            DateTime oneWeekAgo = DateTime.Now.AddDays(-7);
+            List<TimeRegistration> registrations = new List<TimeRegistration>();
+            registrations = TimeRegRepo.GetTimeRegsForEmp(empInitials);
+
+            foreach(var reg in registrations)
             {
-                TimeSpan timeDiff = t.End - t.Start;
+                if(reg.Start > oneWeekAgo)
+                {
+                    TimeSpan timeDiff = reg.End - reg.Start;
+                    total += timeDiff.TotalHours;
+                }
+            }
+            return total;
+        }
+        public static double GetHoursMonth(string empInitials)
+        {
+            double total = 0;
+            DateTime oneMonthAgo = DateTime.Now.AddMonths(-1);
+            List<TimeRegistration> registrations = new List<TimeRegistration>();
+            registrations = TimeRegRepo.GetTimeRegsForEmp(empInitials);
+
+            foreach (var reg in registrations)
+            {
+                if (reg.Start > oneMonthAgo)
+                {
+                    TimeSpan timeDiff = reg.End - reg.Start;
+                    total += timeDiff.TotalHours;
+                }
+            }
+            return total;
+        }
+        public static double GetHoursTotal(string empInitials)
+        {
+            double total = 0;
+            List<TimeRegistration> registrations = new List<TimeRegistration>();
+            registrations = TimeRegRepo.GetTimeRegsForEmp(empInitials);
+
+            foreach (var reg in registrations)
+            {
+                TimeSpan timeDiff = reg.End - reg.Start;
                 total += timeDiff.TotalHours;
             }
             return total;
         }
-        */
     }
 }
