@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DAL.Model {
@@ -25,6 +26,10 @@ namespace DAL.Model {
             EmpInitials = empInitials;
             TaskId = taskId;
             RegID = regID;
+        }
+        public override string ToString()
+        {
+            return $"TaskID: {TaskId} TimeReg: {RegID}";
         }
     }
 

@@ -8,7 +8,7 @@ namespace DAL.Mapper {
     internal class TaskMapper {
         public static DTO.Model.Task MapFromDalToDTO(Task task) {
             if(task != null) {
-                return new DTO.Model.Task(task.TaskId, task.Title, task.Description);
+                return new DTO.Model.Task(task.TaskId, task.Title, task.Description, task.DepID);
             }
             else {
                 return null;
@@ -23,7 +23,7 @@ namespace DAL.Mapper {
             {
                 foreach (Task task in allTasks)
                 {
-                    listDTO.Add(new DTO.Model.Task(task.TaskId, task.Title, task.Description));
+                    listDTO.Add(new DTO.Model.Task(task.TaskId, task.Title, task.Description, task.DepID));
                 }
                 return listDTO;
             }
@@ -41,7 +41,7 @@ namespace DAL.Mapper {
             }
             else
             {
-                return new DAL.Model.Task(task.TaskId,task.Title, task.Description);
+                return new DAL.Model.Task(task.TaskId,task.Title, task.Description, task.DepID);
             }
         }
     }

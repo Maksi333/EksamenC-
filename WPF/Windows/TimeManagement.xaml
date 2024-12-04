@@ -1,0 +1,31 @@
+﻿<Window x:Class="WPF.Windows.TimeManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF.Windows"
+        mc:Ignorable="d"
+        Title="TimeManagement" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="DepartmentsBox" HorizontalAlignment="Left" Margin="57,66,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Savebtn" Content="Save" HorizontalAlignment="Left" Margin="650,350,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="Savebtn_Click"/>
+        <Label Content="Departments" HorizontalAlignment="Left" Margin="57,37,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="EmpList" d:ItemsSource="{Binding Path=MyEmployees}" Margin="220,65,400,89" Width="180" Height="280"/>
+        <Label Content="Time Registrations" HorizontalAlignment="Left" Margin="459,37,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="TimeList" d:ItemsSource="{Binding Path=MyTimeRegs}" Margin="459,65,201,89" Width="180" Height="280"/>
+        <Label Content="Employees" HorizontalAlignment="Left" Margin="220,37,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="ViewEmpbtn" Content="View Employees" HorizontalAlignment="Left" Margin="220,350,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ViewEmpbtn_Click"/>
+        <Button x:Name="ViewTimeBtn" Content="View Time" HorizontalAlignment="Left" Margin="459,350,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="ViewTimeBtn_Click"/>
+        <TextBox x:Name="StartTimetxf" HorizontalAlignment="Left" Margin="640,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Start Time" HorizontalAlignment="Left" Margin="637,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="End Time" HorizontalAlignment="Left" Margin="637,121,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="EndTimeTxf" HorizontalAlignment="Left" Margin="640,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.413,0.208"/>
+        <Button x:Name="WorkTimeBtn" Content="Get Working Time" HorizontalAlignment="Left" Margin="650,175,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="WorkTimeBtn_Click"/>
+
+
+
+    </Grid>
+</Window>

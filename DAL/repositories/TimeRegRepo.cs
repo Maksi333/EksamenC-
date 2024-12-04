@@ -37,5 +37,14 @@ namespace DAL.Repositories
             }
             return TimeRegMapper.MapFromDALToDTO(registrations);
         }
+        public static void UpdateTimeReg(DTO.Model.TimeRegistration timeReg, DateTime start, DateTime end)
+        {
+            using (Context.EksamensContext context = new Context.EksamensContext())
+            {
+                Model.TimeRegistration timeRegData = context.TimeRegistrations.Find(timeReg.RegID);
+                TimeRegMapper.UpdateTimeReg(timeReg, timeRegData, start, end);
+                context.SaveChanges();
+            }
+        }
     }
 }

@@ -41,8 +41,8 @@ namespace WPF {
 
         private void LoadEmployees()
         {
-            ListOfStuff.DataContext = this;
-            ListOfStuff.ItemsSource = MyEmployees;
+            ListOfEmployees.DataContext = this;
+            ListOfEmployees.ItemsSource = MyEmployees;
         }
 
         private void LoadDepartments()
@@ -72,42 +72,44 @@ namespace WPF {
         {
             //Todo Update ListBox to show all Employees and change label to "Emplyees"
             MyEmployees.Clear();
+            Department dep = (DTO.Model.Department)DepartmentsDropDown.SelectedItem;
             List<Employee> employees = EmployeeBll.GetAllEmployees();
             foreach(var emp in employees)
             {
-                MyEmployees.Add(emp);
+                if(emp.DepNumber == dep.DepNumber)
+                {
+                    MyEmployees.Add(emp);
+                }
             }
-            
-
-
         }
 
         private void ViewTasksBtn_Click(object sender, RoutedEventArgs e)
         {
             //Todo Update Listbox to show all Tasks And change label to "Tasks"
             MyTasks.Clear();
+            Department dep = (DTO.Model.Department)DepartmentsDropDown.SelectedItem;
             List<Task> tasks = TaskBll.getAllTasks();
             foreach(var task in tasks)
             {
-                MyTasks.Add(task);
+                if(dep.DepNumber == task.DepID)
+                {
+                    MyTasks.Add(task);
+                }
             }
-            
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ViewTime_Click(object sender, RoutedEventArgs e)
         {
-
+            Employee selectedEmp = (DTO.Model.Employee)ListOfEmployees.SelectedItem;
+            HoursWeek.Content = EmployeeBll.GetHoursWeek(selectedEmp.Initials);
+            Hoursmonth.Content = EmployeeBll.GetHoursMonth(selectedEmp.Initials);
+            HoursTotal.Content = EmployeeBll.GetHoursTotal(selectedEmp.Initials);
         }
 
-        private void Departments_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void EditTaskBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            TimeManagement timeManagement = new TimeManagement();
+            timeManagement.Show();
         }
-
-        private void ListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-      
     }
 }

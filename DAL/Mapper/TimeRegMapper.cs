@@ -22,5 +22,17 @@ namespace DAL.Mapper
             }
             return dtoList;
         }
+
+        public static void UpdateTimeReg(DTO.Model.TimeRegistration timeReg, TimeRegistration timeRegData, DateTime start, DateTime end)
+        {
+            if (timeReg != null && timeRegData != null)
+            {
+                timeRegData.Start = start;
+                timeRegData.End = end;
+                timeRegData.EmpInitials = timeReg.EmpInitials;
+                timeRegData.TaskId = timeReg.TaskId;
+                timeRegData.RegID = timeReg.RegID;
+            }
+        }
     }
 }

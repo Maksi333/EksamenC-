@@ -1,6 +1,8 @@
 ﻿using BLL.BLL;
+using DTO.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,15 +22,29 @@ namespace WPF.Windows
     /// </summary>
     public partial class CreateTask : Window
     {
+        public ObservableCollection<Department> MyDepartments = new ObservableCollection<Department>();
         public CreateTask()
         {
             InitializeComponent();
+            LoadDepartments();
+        }
+        private void LoadDepartments()
+        {
+            MyDepartments.Clear();
+            List<Department> departments = DepartmentBll.GetAllDepartents();
+            foreach (var dep in departments)
+            {
+                MyDepartments.Add(dep);
+            }
+            DepBox.ItemsSource = MyDepartments;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TaskBll.CreateTask(Int32.Parse(idtxf.Text), titletxf.Text, desctxf.Text);
+            Department dep = (DTO.Model.Department)DepBox.SelectedItem;
+            TaskBll.CreateTask(Int32.Parse(idtxf.Text), titletxf.Text, desctxf.Text, dep.DepNumber);
             this.Close();
         }
+
     }
 }

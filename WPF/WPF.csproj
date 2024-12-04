@@ -72,6 +72,9 @@
     <Compile Include="Windows\CreateTask.xaml.cs">
       <DependentUpon>CreateTask.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\TimeManagement.xaml.cs">
+      <DependentUpon>TimeManagement.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,6 +92,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\CreateTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TimeManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

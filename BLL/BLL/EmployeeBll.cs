@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using DAL.Repositories;
 using DTO.Model;
 
@@ -78,6 +75,13 @@ namespace BLL.BLL {
                 total += timeDiff.TotalHours;
             }
             return total;
+        }
+        public static List<TimeRegistration> GetTimeRegs(string empInitials)
+        {
+            List<TimeRegistration > registrations = new List<TimeRegistration>();
+            registrations = TimeRegRepo.GetTimeRegsForEmp(empInitials);
+            return registrations;
+            
         }
     }
 }

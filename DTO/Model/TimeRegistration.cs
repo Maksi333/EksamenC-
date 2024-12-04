@@ -12,7 +12,7 @@ namespace DTO.Model {
         public string EmpInitials { get; set; }
         public Employee Employee { get; set; }
         public int TaskId { get; set; }
-        public int RegId { get; set; }
+        public int RegID { get; set; }
 
         public TimeRegistration() { }
         public TimeRegistration(DateTime start, DateTime end, string empInitials, int taskId, int regId)
@@ -21,7 +21,11 @@ namespace DTO.Model {
             End = end;
             EmpInitials = empInitials;
             TaskId = taskId;
-            RegId = regId;
+            RegID = regId;
+        }
+        public override string ToString()
+        {
+            return $"TaskID: {TaskId} TimeReg: {RegID}";
         }
     }
 }

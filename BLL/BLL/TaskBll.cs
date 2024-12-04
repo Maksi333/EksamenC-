@@ -27,9 +27,9 @@ namespace BLL.BLL {
            
         }
 
-        public static void CreateTask(int id, string title, string description)
+        public static void CreateTask(int id, string title, string description, int depID)
         {
-            Task task = new Task(id, title, description);
+            Task task = new Task(id, title, description, depID);
             TaskRepo.AddTask(task);
         }
 
