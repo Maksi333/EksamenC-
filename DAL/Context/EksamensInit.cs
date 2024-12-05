@@ -26,6 +26,7 @@ namespace DAL.Context {
             context.Departments.Add(dep2);
             context.Departments.Add(dep3);
             context.Tasks.Add(new DAL.Model.Task(1, "Task1", "DescTask1", 1));
+            context.Tasks.Add(new DAL.Model.Task(2, "Task2", "DescTask2", 2));
             context.TimeRegistrations.Add(t1);
             context.TimeRegistrations.Add(t2);
             context.TimeRegistrations.Add(t3);
