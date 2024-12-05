@@ -17,7 +17,6 @@ namespace DAL.Model {
         public Task() { }
         public Task(int id, string title, string description, int depID)
         {
-
             TaskId = id;
             Title = title;
             Description = description;

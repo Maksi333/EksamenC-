@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Repositories;
+using System.Security.Cryptography;
 
 namespace BLL.BLL
 {
@@ -15,6 +16,12 @@ namespace BLL.BLL
         {
             TimeRegRepo.UpdateTimeReg(timeReg, start, end);
         }
-        
+        public static void CreateTimeReg(DateTime start, DateTime end, string empInitials, int taskId)
+        {
+            List<DTO.Model.TimeRegistration> registrations = TimeRegRepo.getAllTimeRegs();
+            int regID = registrations.Count;
+            TimeRegistration timeRegistration = new TimeRegistration(start, end, empInitials, taskId, regID);
+            TimeRegRepo.AddTimeReg(timeRegistration);
+        }
     }
 }

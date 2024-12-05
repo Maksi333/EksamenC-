@@ -46,5 +46,15 @@ namespace DAL.Repositories
                 context.SaveChanges();
             }
         }
+
+        public static void AddTimeReg(TimeRegistration timeRegistration)
+        {
+            using (Context.EksamensContext context = new Context.EksamensContext())
+            {
+                DAL.Model.TimeRegistration timeReg = TimeRegMapper.MapRegFromDTOToDAL(timeRegistration);
+                context.TimeRegistrations.Add(timeReg);
+                context.SaveChanges();
+            }
+        }
     }
 }

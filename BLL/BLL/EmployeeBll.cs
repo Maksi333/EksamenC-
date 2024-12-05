@@ -6,18 +6,19 @@ using DTO.Model;
 namespace BLL.BLL {
     public class EmployeeBll {
 
-        public static Employee GetEmplyee(int cpr)
+        public static Employee GetEmplyee(string initials)
         {
-            if (cpr > 0)
+            if (initials == null)
             {
                 throw new ArgumentOutOfRangeException();
             }
             else
             {
-                return EmployeeRepo.GetEmployee(cpr);
+                return EmployeeRepo.GetEmployee(initials);
             }
             
         }
+       
         public static List<DTO.Model.Employee> GetAllEmployees()
         {
             List<Employee> employees = EmployeeRepo.GetAllEmployees();

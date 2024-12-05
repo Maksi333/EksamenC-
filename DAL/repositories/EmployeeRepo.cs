@@ -10,11 +10,11 @@ namespace DAL.Repositories
 {
     public class EmployeeRepo
     {
-        public static DTO.Model.Employee GetEmployee(int cpr)
+        public static DTO.Model.Employee GetEmployee(string initials)
         {
             using (Context.EksamensContext context = new Context.EksamensContext())
             {
-                Model.Employee employee = context.Employees.Find(cpr);
+                Model.Employee employee = context.Employees.Find(initials);
                 var employeeDTO = Mapper.EmployeeMapper.MapFromDALToDTO(employee);
                 return employeeDTO;
             }
