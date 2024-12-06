@@ -58,6 +58,11 @@ namespace WPF.Windows
         private void ViewEmpbtn_Click(object sender, RoutedEventArgs e)
         {
             MyEmployees.Clear();
+            if(DepartmentsBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select Department");
+                return;
+            }
             Department dep = (DTO.Model.Department)DepartmentsBox.SelectedItem;
             List<Employee> employees = EmployeeBll.GetAllEmployees();
             foreach (var emp in employees)
@@ -68,25 +73,15 @@ namespace WPF.Windows
                 }
             }
         }
-        /*
-        private void ViewTasksBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MyTasks.Clear();
-            Department dep = (DTO.Model.Department)DepartmentsBox.SelectedItem;
-            List<Task> tasks = TaskBll.getAllTasks();
-            foreach(var t in tasks)
-            {
-                if(dep.DepNumber == t.DepID)
-                {
-                    MyTasks.Add(t);
-                }
-            }
-        }
-        */
 
         private void ViewTimeBtn_Click(object sender, RoutedEventArgs e)
         {
             MyTimeRegs.Clear();
+            if(EmpList.SelectedItem == null)
+            {
+                MessageBox.Show("Please select employee");
+                return;
+            }
             Employee emp = (DTO.Model.Employee)EmpList.SelectedItem;
             List<TimeRegistration> timeRegs = EmployeeBll.GetTimeRegs(emp.Initials);
             foreach (var timeReg in timeRegs)
@@ -97,6 +92,11 @@ namespace WPF.Windows
 
         private void Savebtn_Click(object sender, RoutedEventArgs e)
         {
+            if(!DateTime.TryParse(StartTimetxf.Text, out DateTime time) || StartTimetxf.Text == null || !DateTime.TryParse(EndTimeTxf.Text, out DateTime time2) || EndTimeTxf.Text == null)
+            {
+                MessageBox.Show("Please select Time. If you dont have time, select Timeregistration first");
+                return;
+            }
             DateTime start = DateTime.Parse(StartTimetxf.Text);
             DateTime end = DateTime.Parse(EndTimeTxf.Text);
             TimeRegistration selectedTimeReg = (DTO.Model.TimeRegistration)TimeList.SelectedItem;
@@ -106,6 +106,11 @@ namespace WPF.Windows
 
         private void WorkTimeBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (TimeList.SelectedItem == null) 
+            {
+                MessageBox.Show("Please select a timeregistration");
+                return;
+            }
             TimeRegistration timeReg = (DTO.Model.TimeRegistration)TimeList.SelectedItem;
             DateTime start = timeReg.Start;
             DateTime end = timeReg.End;

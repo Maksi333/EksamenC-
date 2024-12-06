@@ -41,8 +41,18 @@ namespace WPF.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if(titletxf == null || desctxf == null || DepBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill out all fields");
+                return;
+            }
+            /*if(!int.TryParse(idtxf.Text, out int id)){
+                MessageBox.Show("Please use number for ID");
+                return;
+            }
+            */
             Department dep = (DTO.Model.Department)DepBox.SelectedItem;
-            TaskBll.CreateTask(Int32.Parse(idtxf.Text), titletxf.Text, desctxf.Text, dep.DepNumber);
+            TaskBll.CreateTask(1, titletxf.Text, desctxf.Text, dep.DepNumber);
             this.Close();
         }
 

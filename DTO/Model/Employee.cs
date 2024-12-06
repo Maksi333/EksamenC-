@@ -25,7 +25,7 @@ namespace DTO.Model {
         }
         public override string ToString()
         {
-            return $"Name: {Name}, CPR: {Cpr}"; 
+            return $"Name: {Name}"; 
         }
     }
 }

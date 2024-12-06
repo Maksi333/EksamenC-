@@ -26,29 +26,47 @@ namespace EksamenC_.Controllers {
         [HttpPost]
         public ActionResult Submit(TimeRegVM model)
         {
-            // Process the selected value
-            string selectedEmployee = model.SelectedEmployeeInitials;
-            string selectedTask = model.SelectedTaskName;
-            DateTime selectedStartTime = model.SelectedStartTime;
-            DateTime selectedEndtime = model.SelectedEndTime;
-            var tasks = TaskBll.getAllTasks();
-            int tID = 0;
-            foreach(var t in tasks)
+            if (ModelState.IsValid)
             {
-                if(t.Title == selectedTask)
+                if (model.SelectedStartTime < DateTime.Now.AddYears(-50) || model.SelectedEndTime > DateTime.Now.AddMonths(1) || model.SelectedEndTime < model.SelectedStartTime)
                 {
-                    tID = t.TaskId;
+                    model.EmployeeList = populateListEmp();
+                    model.TaskList = populateListTask();
+                    ViewBag.Message = "Choose correct dateTime";
+                    return View("Index", model);
                 }
+                // Process the selected value
+                string selectedEmployee = model.SelectedEmployeeInitials;
+                string selectedTask = model.SelectedTaskName;
+                DateTime selectedStartTime = model.SelectedStartTime;
+                DateTime selectedEndtime = model.SelectedEndTime;
+                var tasks = TaskBll.getAllTasks();
+                int tID = 0;
+                foreach (var t in tasks)
+                {
+                    if (t.Title == selectedTask)
+                    {
+                        tID = t.TaskId;
+                    }
+                }
+
+                //Add TimeReg
+                TimeRegBll.CreateTimeReg(selectedStartTime, selectedEndtime, selectedEmployee, tID);
+                ViewBag.Message2 = "TimeRegistration Successfull";
+                // Re-populate the employee list
+                model.EmployeeList = populateListEmp();
+                model.TaskList = populateListTask();
+                
+
+                return View("Index", model);
             }
-            
-            //Add TimeReg
-            TimeRegBll.CreateTimeReg(selectedStartTime,selectedEndtime, selectedEmployee, tID);
-            
-            // Re-populate the employee list
-            model.EmployeeList = populateListEmp();
-            model.TaskList = populateListTask();
-    
-            return View("Index", model);
+            else
+            {
+                model.EmployeeList = populateListEmp();
+                model.TaskList = populateListTask();
+                ViewBag.Message = "Please Fill out all fields";
+                return View("Index", model);
+            }
         }
 
 

@@ -74,11 +74,18 @@ namespace WPF {
             MyEmployees.Clear();
             Department dep = (DTO.Model.Department)DepartmentsDropDown.SelectedItem;
             List<Employee> employees = EmployeeBll.GetAllEmployees();
-            foreach(var emp in employees)
+            if(dep == null)
             {
-                if(emp.DepNumber == dep.DepNumber)
+                MessageBox.Show("Please select department");
+            }
+            else
+            {
+                foreach (var emp in employees)
                 {
-                    MyEmployees.Add(emp);
+                    if (emp.DepNumber == dep.DepNumber)
+                    {
+                        MyEmployees.Add(emp);
+                    }
                 }
             }
         }
@@ -89,21 +96,35 @@ namespace WPF {
             MyTasks.Clear();
             Department dep = (DTO.Model.Department)DepartmentsDropDown.SelectedItem;
             List<Task> tasks = TaskBll.getAllTasks();
-            foreach(var task in tasks)
+            if(dep == null)
             {
-                if(dep.DepNumber == task.DepID)
+                MessageBox.Show("Please select department");
+            }else
+            {
+                foreach (var task in tasks)
                 {
-                    MyTasks.Add(task);
+                    if (dep.DepNumber == task.DepID)
+                    {
+                        MyTasks.Add(task);
+                    }
                 }
             }
+            
         }
 
         private void ViewTime_Click(object sender, RoutedEventArgs e)
         {
             Employee selectedEmp = (DTO.Model.Employee)ListOfEmployees.SelectedItem;
-            HoursWeek.Content = EmployeeBll.GetHoursWeek(selectedEmp.Initials);
-            Hoursmonth.Content = EmployeeBll.GetHoursMonth(selectedEmp.Initials);
-            HoursTotal.Content = EmployeeBll.GetHoursTotal(selectedEmp.Initials);
+            if(selectedEmp == null)
+            {
+                MessageBox.Show("Please select employee");
+            }
+            else
+            {
+                HoursWeek.Content =  System.Math.Round(EmployeeBll.GetHoursWeek(selectedEmp.Initials), 2);
+                Hoursmonth.Content = System.Math.Round(EmployeeBll.GetHoursMonth(selectedEmp.Initials), 2);
+                HoursTotal.Content = System.Math.Round(EmployeeBll.GetHoursTotal(selectedEmp.Initials), 2);
+            }
         }
 
         private void EditTaskBtn_Click(object sender, RoutedEventArgs e)

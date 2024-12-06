@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF.Windows"
         mc:Ignorable="d"
         Title="CreateEmployee" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FFE5E5E5">
         <TextBox x:Name="Inittxf" HorizontalAlignment="Left" Margin="54,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="Cprtxf" HorizontalAlignment="Left" Margin="54,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="Nametxf" HorizontalAlignment="Left" Margin="54,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
@@ -15,7 +15,8 @@
         <Label Content="Initials" HorizontalAlignment="Left" Margin="52,58,0,0" VerticalAlignment="Top" Width="83"/>
         <Label Content="CPR" HorizontalAlignment="Left" Margin="54,112,0,0" VerticalAlignment="Top" Width="67"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="54,160,0,0" VerticalAlignment="Top"/>
-        <Label Content="Department" HorizontalAlignment="Left" Margin="52,0,0,0" VerticalAlignment="Center"/>
+        <Label Content="Department" HorizontalAlignment="Left" Margin="52,205,0,0" VerticalAlignment="Top"/>
+        <Label Content="Create Employee" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
 
     </Grid>
 </Window>

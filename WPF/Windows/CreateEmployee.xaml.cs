@@ -47,10 +47,27 @@ namespace WPF.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Department selectedDep = (DTO.Model.Department)DepartmentList.SelectionBoxItem;
-            EmployeeBll.CreateEmployee(Inittxf.Text, Int32.Parse(Cprtxf.Text), Nametxf.Text, selectedDep.DepNumber); 
-            this.Close();
+
+            if (Inittxf.Text == "" || Cprtxf.Text == "" || Nametxf.Text == "")
+            {
+                MessageBox.Show("Please fill out all fields");
+                return;
+            }
+
+            if(!int.TryParse(Cprtxf.Text, out int cprNumber))
+            {
+                MessageBox.Show("Please only use numbers in CPR or fill out all fields");
+                return;
+            }
+            if (DepartmentList.SelectedItem == null)
+            {
+                MessageBox.Show("Please select Department");
+                return;
+            }
+
+             Department selectedDep = (DTO.Model.Department)DepartmentList.SelectionBoxItem;
+             EmployeeBll.CreateEmployee(Inittxf.Text, Int32.Parse(Cprtxf.Text), Nametxf.Text, selectedDep.DepNumber);
+             this.Close();
         }
-        
     }
 }
